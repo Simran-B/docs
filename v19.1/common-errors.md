@@ -73,6 +73,10 @@ When errors like this occur, the application has the following options:
 Uncertainty errors are a form of transaction conflict. For more information about transaction conflicts, see [Transaction conflicts](architecture/transaction-layer.html#transaction-conflicts).
 {{site.data.alerts.end}}
 
+### transaction deadline exceeded
+
+<span class="version-tag">New in v19.1</span>: Errors of type "transaction deadline exceeded" are considered retryable, and paired with the error code `4001`.  Such errors occur when transactions are pushed in the transaction queue by long spans of time -- sometimes up to several minutes.  In previous versions of CockroachDB, this type of error was reported as an opaque `TransactionStatusError`.
+
 <!-- ### write too old -->
 
 <!-- ### async write failure -->
